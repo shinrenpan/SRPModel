@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		252D4B994C3159037BABD33742849183 /* PropertyModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 297B1FBF8DFBDEDDE01BEDA25A9DF911 /* PropertyModels.m */; };
+		31798925CC9C4E74DFB9437A5A891C41 /* SRPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */; };
+		4F60204311A109B41CE762F2D28928D4 /* SRPModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 243556F12A9CF40F1542C6EFFF8D7B2C /* SRPModelTests.m */; };
+		58405806D16915116A56DBEFBDCB59C8 /* PropertyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAEF510CBA90C398BC26ABD0C3212FB /* PropertyModel.m */; };
+		7F821C0B46B7FA886A44B967BFE5120A /* MappingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F00E7E1B14B60A803B678BAB52932E /* MappingModel.m */; };
+		816A8A161C13EC41DF0AA0FD29701CB2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */; };
+		830993B7ED63980BB543A673B769C57D /* SRPModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E96E149F7A432EF0DC2337A14FADE90A /* SRPModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2906F3A0975BCEF8F78EDABEB1399AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A418683949C6FFCE19A66320D0E5E1DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02BACE135F9D67F9856BA567F12F7C0E;
+			remoteInfo = SRPModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		243556F12A9CF40F1542C6EFFF8D7B2C /* SRPModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRPModelTests.m; sourceTree = "<group>"; };
+		2468B9223D71CD60D9F292D54C703748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26377B5892C5A8493E6277ABBAEE7331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		297B1FBF8DFBDEDDE01BEDA25A9DF911 /* PropertyModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyModels.m; sourceTree = "<group>"; };
+		38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRPModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C667086EF83F526D9B9A8DF58A30AD2 /* SRPModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRPModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		5690D8E81441BF8FEB8B99C90725CD0E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		5FAEF510CBA90C398BC26ABD0C3212FB /* PropertyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyModel.m; sourceTree = "<group>"; };
+		72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPModel.m; sourceTree = "<group>"; };
+		8AF10787B23FE7531A737365155561C0 /* MappingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingModel.h; sourceTree = "<group>"; };
+		B05D0D2EDFE34D4D3E41FBC9883DF44F /* PropertyModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyModels.h; sourceTree = "<group>"; };
+		B6F00E7E1B14B60A803B678BAB52932E /* MappingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingModel.m; sourceTree = "<group>"; };
+		BB228624C9D3D32E02C037D44A4E3287 /* PropertyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyModel.h; sourceTree = "<group>"; };
+		C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRPModel.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B956B89595399D2FDE31415F4F44CA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42140E7A6ADAF66AD3E3EFC4899CE09D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E96E149F7A432EF0DC2337A14FADE90A /* SRPModel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2629B72F29A4DBA387BC8DC30D64BF1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */,
+				4C667086EF83F526D9B9A8DF58A30AD2 /* SRPModelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C195E8CB5B4535D264DCF3C3F22453EB /* SRPModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				2468B9223D71CD60D9F292D54C703748 /* Info.plist */,
+				8AF10787B23FE7531A737365155561C0 /* MappingModel.h */,
+				B6F00E7E1B14B60A803B678BAB52932E /* MappingModel.m */,
+				5690D8E81441BF8FEB8B99C90725CD0E /* Model.h */,
+				5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */,
+				BB228624C9D3D32E02C037D44A4E3287 /* PropertyModel.h */,
+				5FAEF510CBA90C398BC26ABD0C3212FB /* PropertyModel.m */,
+				B05D0D2EDFE34D4D3E41FBC9883DF44F /* PropertyModels.h */,
+				297B1FBF8DFBDEDDE01BEDA25A9DF911 /* PropertyModels.m */,
+				243556F12A9CF40F1542C6EFFF8D7B2C /* SRPModelTests.m */,
+			);
+			path = SRPModelTests;
+			sourceTree = "<group>";
+		};
+		D3BE0BE5485C609D6D4CAB1735C9225A = {
+			isa = PBXGroup;
+			children = (
+				2629B72F29A4DBA387BC8DC30D64BF1D /* Products */,
+				D42A39F13A2DF2AA26AEC6FBA89652C9 /* SRPModel */,
+				C195E8CB5B4535D264DCF3C3F22453EB /* SRPModelTests */,
+			);
+			sourceTree = "<group>";
+		};
+		D42A39F13A2DF2AA26AEC6FBA89652C9 /* SRPModel */ = {
+			isa = PBXGroup;
+			children = (
+				26377B5892C5A8493E6277ABBAEE7331 /* Info.plist */,
+				C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */,
+				72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */,
+			);
+			path = SRPModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CF065C72B6AE04E4302A362D4DF50F9F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				830993B7ED63980BB543A673B769C57D /* SRPModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		02BACE135F9D67F9856BA567F12F7C0E /* SRPModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1184C10506F63FB34148E11A02AD6DC2 /* Build configuration list for PBXNativeTarget "SRPModel" */;
+			buildPhases = (
+				6D8B9FE7A0EE2F5A35BC156CC3E38388 /* Sources */,
+				3B956B89595399D2FDE31415F4F44CA1 /* Frameworks */,
+				CF065C72B6AE04E4302A362D4DF50F9F /* Headers */,
+				DB58356DFE56976C9397CA470E710C28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SRPModel;
+			productName = SRPModel;
+			productReference = 38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B00CBF1B72FF4AD3F2D32455ACEBF563 /* SRPModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D65F03E3D726F35E6108E7BD496A97E /* Build configuration list for PBXNativeTarget "SRPModelTests" */;
+			buildPhases = (
+				1E7036DFEF06D06E56041BD649EA66ED /* Sources */,
+				42140E7A6ADAF66AD3E3EFC4899CE09D /* Frameworks */,
+				99C135628D8E407F0F59ACA67D48B0BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A848CCD3955778F5352450DE21D89939 /* PBXTargetDependency */,
+			);
+			name = SRPModelTests;
+			productName = SRPModelTests;
+			productReference = 4C667086EF83F526D9B9A8DF58A30AD2 /* SRPModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A418683949C6FFCE19A66320D0E5E1DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = shinrenpan;
+				TargetAttributes = {
+					02BACE135F9D67F9856BA567F12F7C0E = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					B00CBF1B72FF4AD3F2D32455ACEBF563 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 928B4544EC03F4F2D7CCF6D16CAFA504 /* Build configuration list for PBXProject "SRPModel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D3BE0BE5485C609D6D4CAB1735C9225A;
+			productRefGroup = 2629B72F29A4DBA387BC8DC30D64BF1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02BACE135F9D67F9856BA567F12F7C0E /* SRPModel */,
+				B00CBF1B72FF4AD3F2D32455ACEBF563 /* SRPModelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99C135628D8E407F0F59ACA67D48B0BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB58356DFE56976C9397CA470E710C28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E7036DFEF06D06E56041BD649EA66ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F821C0B46B7FA886A44B967BFE5120A /* MappingModel.m in Sources */,
+				816A8A161C13EC41DF0AA0FD29701CB2 /* Model.m in Sources */,
+				58405806D16915116A56DBEFBDCB59C8 /* PropertyModel.m in Sources */,
+				252D4B994C3159037BABD33742849183 /* PropertyModels.m in Sources */,
+				4F60204311A109B41CE762F2D28928D4 /* SRPModelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D8B9FE7A0EE2F5A35BC156CC3E38388 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31798925CC9C4E74DFB9437A5A891C41 /* SRPModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A848CCD3955778F5352450DE21D89939 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02BACE135F9D67F9856BA567F12F7C0E /* SRPModel */;
+			targetProxy = E2906F3A0975BCEF8F78EDABEB1399AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00BA993A4B83CDE8EA38702CB9A59450 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7ACB74D916AE114A372FEE771A25F268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SRPModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		93C0DA0B21A139903595552766F2C290 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SRPModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7336FC828931A9B8D17E95A399A37F07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		342C12290240A53B8EF03E8F56231CEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SRPModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		73F27C99759B17A37C6E441CC55962C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SRPModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		928B4544EC03F4F2D7CCF6D16CAFA504 /* Build configuration list for PBXProject "SRPModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7336FC828931A9B8D17E95A399A37F07 /* Debug */,
+				00BA993A4B83CDE8EA38702CB9A59450 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D65F03E3D726F35E6108E7BD496A97E /* Build configuration list for PBXNativeTarget "SRPModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C0DA0B21A139903595552766F2C290 /* Debug */,
+				73F27C99759B17A37C6E441CC55962C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1184C10506F63FB34148E11A02AD6DC2 /* Build configuration list for PBXNativeTarget "SRPModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				342C12290240A53B8EF03E8F56231CEE /* Debug */,
+				7ACB74D916AE114A372FEE771A25F268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A418683949C6FFCE19A66320D0E5E1DB /* Project object */;
+}
