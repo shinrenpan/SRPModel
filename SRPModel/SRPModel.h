@@ -1,5 +1,5 @@
 // SRPModel.h
-// Version 1.0.0
+// Version 1.0.1
 // Copyright (c) 2016年 shinren.pan@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,6 +50,13 @@
  *  @return 返回 SRPModel 集合.
  */
 + (NSArray *)newModelsFromArray:(NSArray *)array forProperty:(NSString *)property;
+
+/**
+ *  是否要包含 Super Class 的 Property.
+ *
+ *  @return 是否要包含 Super Class 的 Property.
+ */
++ (BOOL)includeSuperClassProperties;
 
 @end
 
@@ -117,6 +124,6 @@
  *
  *  @return 將 Model 轉成 JSON String
  */
-- (NSString *)toJSON;
+- (NSString *)toJSONString;
 
 @end

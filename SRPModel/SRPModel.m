@@ -123,7 +123,7 @@
     
     // 將 self properties 跟 mapping allkeys 做 NSSet intersect,
     // 取出共有的 key, 再設置 value, 可加速設置過程.
-    NSSet *properties  = [self __properties];
+    NSSet *properties  = [self __allProperties];
     NSMutableSet *keys = [NSMutableSet setWithArray:[keyedValues allKeys]];
     
     [keys intersectSet:properties];
@@ -154,7 +154,7 @@
 #pragma mark SRPModel to NSDictionary
 - (NSDictionary *)toDictionary
 {
-    NSSet *properties = [self __properties];
+    NSSet *properties = [self __allProperties];
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:properties.count];
     
     for(NSString *property in properties)
@@ -190,7 +190,7 @@
 }
 
 #pragma mark SRPModel to JSON string
-- (NSString *)toJSON
+- (NSString *)toJSONString
 {
     NSDictionary *dic = [self toDictionary];
     NSData *toData    = [NSJSONSerialization dataWithJSONObject:dic
@@ -236,24 +236,51 @@
 }
 
 #pragma mark 返回 properties
-- (NSSet *)__properties
+- (NSSet *)__allProperties
 {
-    unsigned int count          = 0;
-    NSMutableArray *temp        = [NSMutableArray array];
-    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    BOOL includeSuperClass = NO;
     
-    for(NSUInteger i = 0; i < count ; i++)
+    if([[self class]respondsToSelector:@selector(includeSuperClassProperties)])
     {
-        objc_property_t property = properties[i];
-        const char *propertyName = property_getName(property);
+        includeSuperClass = [[self class]includeSuperClassProperties];
+    }
+    
+    NSMutableSet *result = [NSMutableSet set];
+    Class class = [self class];
+    
+    while ([class isSubclassOfClass:[SRPModel class]])
+    {
+        [self __propertiesForClass:class withSet:&result];
         
-        if(propertyName)
+        if(!includeSuperClass)
         {
-            [temp addObject:[NSString stringWithCString:propertyName encoding:NSUTF8StringEncoding]];
+            break;
+        }
+        
+        class = [class superclass];
+    }
+    
+    
+    return result.count ? result : nil;
+}
+
+- (void)__propertiesForClass:(Class)class withSet:(NSMutableSet **)result
+{
+    unsigned int count;
+    objc_property_t *propertyList = class_copyPropertyList(class, &count);;
+    NSString *propertyName;
+    
+    for(unsigned int i = 0; i < count; i++)
+    {
+        propertyName = @(property_getName(propertyList[i]));
+        
+        if(propertyName.length)
+        {
+            [*result addObject:propertyName];
         }
     }
     
-    return [NSSet setWithArray:temp];
+    free(propertyList);
 }
 
 #pragma mark 返回某個 Property 的 class 類型
@@ -263,15 +290,22 @@
     
     objc_property_t property = class_getProperty([self class], key.UTF8String);
     
-    if(!property)
+    if(property == NULL)
     {
-        return nil;
+        return NULL;
     }
     
+    // 以 NSString 為例
+    // "T@\"NSString\",R,N,V_property"
     const char *type = property_getAttributes(property);
     
+    // T@"NSString",R,N,V_property
     NSString * typeString    = @(type);
+    
+    //@[@"T@"NSString", @"R", @"N", @"V_property"]
     NSArray * attributes     = [typeString componentsSeparatedByString:@","];
+    
+    // T@"NSString
     NSString * typeAttribute = [attributes objectAtIndex:0];
     
     // 注意: 不處理 id 類型, property 請不要使用 id
@@ -279,11 +313,11 @@
     if([typeAttribute hasPrefix:@"T@"])
     {
         NSRange range            = NSMakeRange(3, [typeAttribute length]-4);
-        NSString * typeClassName = [typeAttribute substringWithRange:range];
+        NSString * typeClassName = [typeAttribute substringWithRange:range]; // NSString
         class                    = NSClassFromString(typeClassName);
     }
     
-    // int, float, BOOL 類型
+    // NSInteger, int, float, BOOL ...等數值類型, 都直接轉成 NSNumber class
     else
     {
         class = [NSNumber class];

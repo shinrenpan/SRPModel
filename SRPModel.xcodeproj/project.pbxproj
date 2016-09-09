@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		252D4B994C3159037BABD33742849183 /* PropertyModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 297B1FBF8DFBDEDDE01BEDA25A9DF911 /* PropertyModels.m */; };
+		26AFDF2F205FEFD0EF4499B375995BFB /* TestModelsFromJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8B589FF23B89078F2F6B57B133FA4 /* TestModelsFromJSONString.m */; };
 		31798925CC9C4E74DFB9437A5A891C41 /* SRPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */; };
-		4F60204311A109B41CE762F2D28928D4 /* SRPModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 243556F12A9CF40F1542C6EFFF8D7B2C /* SRPModelTests.m */; };
-		58405806D16915116A56DBEFBDCB59C8 /* PropertyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAEF510CBA90C398BC26ABD0C3212FB /* PropertyModel.m */; };
-		7F821C0B46B7FA886A44B967BFE5120A /* MappingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F00E7E1B14B60A803B678BAB52932E /* MappingModel.m */; };
 		816A8A161C13EC41DF0AA0FD29701CB2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */; };
 		830993B7ED63980BB543A673B769C57D /* SRPModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94E441527F74BA7C04071ED8DABF85C6 /* TestModelsFromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 506AC21778CC3A351A6B82222FC57BC8 /* TestModelsFromArray.m */; };
+		E65998022EA2B6481139BEB4F442314A /* TestModelFromDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 83007C501796521E4CE58ED3015723B6 /* TestModelFromDictionary.m */; };
 		E96E149F7A432EF0DC2337A14FADE90A /* SRPModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */; };
+		FBA862F8E477B18A1D9ED19765B786D3 /* TestModelFromJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F760B6730F2E802CE030FAF4BE053D1 /* TestModelFromJSONString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +28,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		243556F12A9CF40F1542C6EFFF8D7B2C /* SRPModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRPModelTests.m; sourceTree = "<group>"; };
 		2468B9223D71CD60D9F292D54C703748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26377B5892C5A8493E6277ABBAEE7331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		297B1FBF8DFBDEDDE01BEDA25A9DF911 /* PropertyModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyModels.m; sourceTree = "<group>"; };
 		38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRPModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C667086EF83F526D9B9A8DF58A30AD2 /* SRPModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRPModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		506AC21778CC3A351A6B82222FC57BC8 /* TestModelsFromArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelsFromArray.m; sourceTree = "<group>"; };
 		5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		5690D8E81441BF8FEB8B99C90725CD0E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		5FAEF510CBA90C398BC26ABD0C3212FB /* PropertyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyModel.m; sourceTree = "<group>"; };
 		72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPModel.m; sourceTree = "<group>"; };
-		8AF10787B23FE7531A737365155561C0 /* MappingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingModel.h; sourceTree = "<group>"; };
-		B05D0D2EDFE34D4D3E41FBC9883DF44F /* PropertyModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyModels.h; sourceTree = "<group>"; };
-		B6F00E7E1B14B60A803B678BAB52932E /* MappingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingModel.m; sourceTree = "<group>"; };
-		BB228624C9D3D32E02C037D44A4E3287 /* PropertyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyModel.h; sourceTree = "<group>"; };
+		7FE8B589FF23B89078F2F6B57B133FA4 /* TestModelsFromJSONString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelsFromJSONString.m; sourceTree = "<group>"; };
+		83007C501796521E4CE58ED3015723B6 /* TestModelFromDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelFromDictionary.m; sourceTree = "<group>"; };
+		8F760B6730F2E802CE030FAF4BE053D1 /* TestModelFromJSONString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelFromJSONString.m; sourceTree = "<group>"; };
 		C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRPModel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,15 +74,12 @@
 			isa = PBXGroup;
 			children = (
 				2468B9223D71CD60D9F292D54C703748 /* Info.plist */,
-				8AF10787B23FE7531A737365155561C0 /* MappingModel.h */,
-				B6F00E7E1B14B60A803B678BAB52932E /* MappingModel.m */,
 				5690D8E81441BF8FEB8B99C90725CD0E /* Model.h */,
 				5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */,
-				BB228624C9D3D32E02C037D44A4E3287 /* PropertyModel.h */,
-				5FAEF510CBA90C398BC26ABD0C3212FB /* PropertyModel.m */,
-				B05D0D2EDFE34D4D3E41FBC9883DF44F /* PropertyModels.h */,
-				297B1FBF8DFBDEDDE01BEDA25A9DF911 /* PropertyModels.m */,
-				243556F12A9CF40F1542C6EFFF8D7B2C /* SRPModelTests.m */,
+				83007C501796521E4CE58ED3015723B6 /* TestModelFromDictionary.m */,
+				8F760B6730F2E802CE030FAF4BE053D1 /* TestModelFromJSONString.m */,
+				506AC21778CC3A351A6B82222FC57BC8 /* TestModelsFromArray.m */,
+				7FE8B589FF23B89078F2F6B57B133FA4 /* TestModelsFromJSONString.m */,
 			);
 			path = SRPModelTests;
 			sourceTree = "<group>";
@@ -216,11 +210,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F821C0B46B7FA886A44B967BFE5120A /* MappingModel.m in Sources */,
 				816A8A161C13EC41DF0AA0FD29701CB2 /* Model.m in Sources */,
-				58405806D16915116A56DBEFBDCB59C8 /* PropertyModel.m in Sources */,
-				252D4B994C3159037BABD33742849183 /* PropertyModels.m in Sources */,
-				4F60204311A109B41CE762F2D28928D4 /* SRPModelTests.m in Sources */,
+				E65998022EA2B6481139BEB4F442314A /* TestModelFromDictionary.m in Sources */,
+				FBA862F8E477B18A1D9ED19765B786D3 /* TestModelFromJSONString.m in Sources */,
+				94E441527F74BA7C04071ED8DABF85C6 /* TestModelsFromArray.m in Sources */,
+				26AFDF2F205FEFD0EF4499B375995BFB /* TestModelsFromJSONString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +279,7 @@
 			};
 			name = Release;
 		};
-		7ACB74D916AE114A372FEE771A25F268 /* Release */ = {
+		342C12290240A53B8EF03E8F56231CEE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEFINES_MODULE = YES;
@@ -298,16 +292,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		93C0DA0B21A139903595552766F2C290 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SRPModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -359,7 +343,17 @@
 			};
 			name = Debug;
 		};
-		342C12290240A53B8EF03E8F56231CEE /* Debug */ = {
+		73F27C99759B17A37C6E441CC55962C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SRPModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7ACB74D916AE114A372FEE771A25F268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEFINES_MODULE = YES;
@@ -373,9 +367,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		73F27C99759B17A37C6E441CC55962C8 /* Release */ = {
+		93C0DA0B21A139903595552766F2C290 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = SRPModelTests/Info.plist;
@@ -383,16 +377,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shinrenpan.SRPModelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		928B4544EC03F4F2D7CCF6D16CAFA504 /* Build configuration list for PBXProject "SRPModel" */ = {
+		1184C10506F63FB34148E11A02AD6DC2 /* Build configuration list for PBXNativeTarget "SRPModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7336FC828931A9B8D17E95A399A37F07 /* Debug */,
-				00BA993A4B83CDE8EA38702CB9A59450 /* Release */,
+				342C12290240A53B8EF03E8F56231CEE /* Debug */,
+				7ACB74D916AE114A372FEE771A25F268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -406,11 +400,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1184C10506F63FB34148E11A02AD6DC2 /* Build configuration list for PBXNativeTarget "SRPModel" */ = {
+		928B4544EC03F4F2D7CCF6D16CAFA504 /* Build configuration list for PBXProject "SRPModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				342C12290240A53B8EF03E8F56231CEE /* Debug */,
-				7ACB74D916AE114A372FEE771A25F268 /* Release */,
+				7336FC828931A9B8D17E95A399A37F07 /* Debug */,
+				00BA993A4B83CDE8EA38702CB9A59450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

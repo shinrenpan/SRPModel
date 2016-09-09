@@ -10,6 +10,6 @@
 
 @interface Model : SRPModel
 
-@property (nonatomic, readonly) NSString *property;
+@property (nonatomic, readonly) NSString *key;
 
 @end
