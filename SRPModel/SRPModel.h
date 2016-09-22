@@ -1,5 +1,4 @@
 // SRPModel.h
-// Version 1.0.1
 // Copyright (c) 2016年 shinren.pan@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
