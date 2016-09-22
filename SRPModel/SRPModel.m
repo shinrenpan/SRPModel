@@ -147,39 +147,7 @@
 #pragma mark - Debug Look
 - (id)debugQuickLookObject
 {
-    NSDictionary *dic = [self toDictionary];
-    
-    if(!dic.allKeys.count)
-    {
-        return @"{\n}";
-    }
-    
-    NSArray *sortKeys = [[dic allKeys]sortedArrayUsingSelector:@selector(compare:)];
-    
-    NSMutableString *result = [@"{" mutableCopy];
-    
-    for(NSString *key in sortKeys)
-    {
-        [result appendString:@"\n"];
-        
-        NSString *keyDesc = [NSString stringWithFormat:@"    \"%@\" : ", key];
-        [result appendString:keyDesc];
-        
-        id value = dic[key];
-        
-        if([value isKindOfClass:[NSString class]])
-        {
-            [result appendString:[NSString stringWithFormat:@"\"%@\"", value]];
-        }
-        else
-        {
-            [result appendString:[NSString stringWithFormat:@"%@", value]];
-        }
-    }
-    
-    [result appendString:@"\n}"];
-    
-    return result;
+    return [self toJSONString];
 }
 
 #pragma mark - Piblic
