@@ -77,11 +77,18 @@
         return nil;
     }
     
-    id object = [[self alloc]init];
+    id result = [[self alloc]init];
     
-    [object setValuesForKeysWithDictionary:dic];
+    if([[self class]respondsToSelector:@selector(defaultValues)])
+    {
+        NSDictionary *defaultValuse = [self defaultValues];
+        
+        [result setValuesForKeysWithDictionary:defaultValuse];
+    }
     
-    return object;
+    [result setValuesForKeysWithDictionary:dic];
+    
+    return result;
 }
 
 #pragma mark Model from JSON String
@@ -161,6 +168,11 @@
     {
         id value = [self valueForKey:property];
         
+        if(!value)
+        {
+            value = [NSNull null];
+        }
+        
         if([value isKindOfClass:[SRPModel class]])
         {
             value = [value toDictionary];
@@ -205,7 +217,7 @@
 #pragma mark 設置 Key / Value
 - (void)__setValue:(id)value forKey:(NSString *)key
 {
-    if([value isKindOfClass:[NSNull class]])
+    if([value isKindOfClass:[NSNull class]] || !value)
     {
         return;
     }

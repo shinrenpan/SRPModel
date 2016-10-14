@@ -21,6 +21,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 /**
  *  SRPModel Protocol
  */
@@ -56,6 +57,13 @@
  *  @return 是否要包含 Super Class 的 Property.
  */
 + (BOOL)includeSuperClassProperties;
+
+/**
+ *  自定義 model default value.
+ *
+ *  @return 返回自定義的 default values.
+ */
++ (NSDictionary *)defaultValues;
 
 @end
 

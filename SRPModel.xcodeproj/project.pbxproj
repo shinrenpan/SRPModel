@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26AFDF2F205FEFD0EF4499B375995BFB /* TestModelsFromJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8B589FF23B89078F2F6B57B133FA4 /* TestModelsFromJSONString.m */; };
 		31798925CC9C4E74DFB9437A5A891C41 /* SRPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */; };
-		816A8A161C13EC41DF0AA0FD29701CB2 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */; };
+		65D286572E7341EBD01F10F27F3B13DE /* SRPModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7886F7BD8652740AE41E8C13F7335D /* SRPModelTest.m */; };
 		830993B7ED63980BB543A673B769C57D /* SRPModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94E441527F74BA7C04071ED8DABF85C6 /* TestModelsFromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 506AC21778CC3A351A6B82222FC57BC8 /* TestModelsFromArray.m */; };
-		E65998022EA2B6481139BEB4F442314A /* TestModelFromDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 83007C501796521E4CE58ED3015723B6 /* TestModelFromDictionary.m */; };
 		E96E149F7A432EF0DC2337A14FADE90A /* SRPModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */; };
-		FBA862F8E477B18A1D9ED19765B786D3 /* TestModelFromJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F760B6730F2E802CE030FAF4BE053D1 /* TestModelFromJSONString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +28,8 @@
 		26377B5892C5A8493E6277ABBAEE7331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B660262000F54CAC161DD035B3E03D /* SRPModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRPModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C667086EF83F526D9B9A8DF58A30AD2 /* SRPModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRPModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		506AC21778CC3A351A6B82222FC57BC8 /* TestModelsFromArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelsFromArray.m; sourceTree = "<group>"; };
-		5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		5690D8E81441BF8FEB8B99C90725CD0E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		4F7886F7BD8652740AE41E8C13F7335D /* SRPModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPModelTest.m; sourceTree = "<group>"; };
 		72610C29797E44D850F51AD54778F3F6 /* SRPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPModel.m; sourceTree = "<group>"; };
-		7FE8B589FF23B89078F2F6B57B133FA4 /* TestModelsFromJSONString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelsFromJSONString.m; sourceTree = "<group>"; };
-		83007C501796521E4CE58ED3015723B6 /* TestModelFromDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelFromDictionary.m; sourceTree = "<group>"; };
-		8F760B6730F2E802CE030FAF4BE053D1 /* TestModelFromJSONString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModelFromJSONString.m; sourceTree = "<group>"; };
 		C3EB78F7608FCF667DD4B7DE05D62BBE /* SRPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRPModel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,12 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				2468B9223D71CD60D9F292D54C703748 /* Info.plist */,
-				5690D8E81441BF8FEB8B99C90725CD0E /* Model.h */,
-				5281C6578BE51BBCA3A04658C2E02A29 /* Model.m */,
-				83007C501796521E4CE58ED3015723B6 /* TestModelFromDictionary.m */,
-				8F760B6730F2E802CE030FAF4BE053D1 /* TestModelFromJSONString.m */,
-				506AC21778CC3A351A6B82222FC57BC8 /* TestModelsFromArray.m */,
-				7FE8B589FF23B89078F2F6B57B133FA4 /* TestModelsFromJSONString.m */,
+				4F7886F7BD8652740AE41E8C13F7335D /* SRPModelTest.m */,
 			);
 			path = SRPModelTests;
 			sourceTree = "<group>";
@@ -210,11 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				816A8A161C13EC41DF0AA0FD29701CB2 /* Model.m in Sources */,
-				E65998022EA2B6481139BEB4F442314A /* TestModelFromDictionary.m in Sources */,
-				FBA862F8E477B18A1D9ED19765B786D3 /* TestModelFromJSONString.m in Sources */,
-				94E441527F74BA7C04071ED8DABF85C6 /* TestModelsFromArray.m in Sources */,
-				26AFDF2F205FEFD0EF4499B375995BFB /* TestModelsFromJSONString.m in Sources */,
+				65D286572E7341EBD01F10F27F3B13DE /* SRPModelTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
