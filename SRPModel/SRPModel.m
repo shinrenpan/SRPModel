@@ -1,72 +1,63 @@
-// SRPModel.m
 //
-// Copyright (c) 2016年 shinren.pan@gmail.com
+// Copyright (c) 2016 shinren.pan@gmail.com
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 #import "SRPModel.h"
 #import <objc/runtime.h>
+
+// Encode / Decode Key
+static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 
 
 @implementation SRPModel
 
 #pragma mark - Class methods
 #pragma mark Models from NSArray
-+ (NSArray *)modelsFromArray:(NSArray *)array
++ (NSArray<SRPModel *> *)modelsFromArray:(NSArray *)array
 {
     if(![array isKindOfClass:[NSArray class]] || !array.count)
     {
         return nil;
     }
     
-    __block NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
+    __block NSMutableArray *results = [NSMutableArray arrayWithCapacity:array.count];
     
-    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+    {
         id model = [self modelFromDictionary:obj];
         
-        if(!model)
+        if(!model || ![model isKindOfClass:[SRPModel class]])
         {
-            result = nil;
-            *stop  = YES;
+            results = nil;
+            *stop   = YES;
         }
         
-        [result addObject:model];
+        [results addObject:model];
     }];
     
-    return result;
+    return results;
 }
 
 #pragma mark Models from JSON String
-+ (NSArray *)modelsFromJSONString:(NSString *)json
++ (NSArray<SRPModel *> *)modelsFromJSONString:(NSString *)json
 {
     if(![json isKindOfClass:[NSString class]] || !json.length)
     {
         return nil;
     }
     
-    NSData *toData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
     
-    id object = [NSJSONSerialization JSONObjectWithData:toData
-                                                options:NSJSONReadingAllowFragments
-                                                  error:nil];
+    if(!jsonData.length)
+    {
+        return nil;
+    }
     
-    return [self modelsFromArray:object];
+    id jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                   options:NSJSONReadingAllowFragments
+                                                     error:nil];
+    
+    return [self modelsFromArray:jsonArray];
 }
 
 #pragma mark Model from NSDictionary
@@ -79,9 +70,9 @@
     
     id result = [[self alloc]init];
     
-    if([[self class]respondsToSelector:@selector(defaultValues)])
+    if([[self class]respondsToSelector:@selector(defaultKeysValues)])
     {
-        NSDictionary *defaultValuse = [self defaultValues];
+        NSDictionary *defaultValuse = [self defaultKeysValues];
         
         [result setValuesForKeysWithDictionary:defaultValuse];
     }
@@ -99,13 +90,30 @@
         return nil;
     }
     
-    NSData *toData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
     
-    id object = [NSJSONSerialization JSONObjectWithData:toData
-                                                options:NSJSONReadingAllowFragments
-                                                  error:nil];
+    id jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                 options:NSJSONReadingAllowFragments
+                                                   error:nil];
     
-    return [self modelFromDictionary:object];
+    return [self modelFromDictionary:jsonDic];
+}
+
+#pragma mark - NSCoding
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    NSString *json = [aDecoder decodeObjectForKey:SRPModelNSCodingKey];
+    
+    self = [[self class]modelFromJSONString:json];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    NSString *json = [self toJSONString];
+    
+    [aCoder encodeObject:json forKey:SRPModelNSCodingKey];
 }
 
 #pragma mark - NSKeyValueCoding
@@ -117,18 +125,19 @@
     }
     
     // 如果有實作 mapping, 先設置 mapping 的 key / value.
-    if([[self class]respondsToSelector:@selector(propertyMapping)])
+    if([[self class]respondsToSelector:@selector(keyMapping)])
     {
-        NSDictionary *mapping = [[self class]propertyMapping];
+        NSDictionary *mapping = [[self class]keyMapping];
         
-        [mapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [mapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
+        {
             id value = keyedValues[key];
             
             [self __setValue:value forKey:obj];
         }];
     }
     
-    // 將 self properties 跟 mapping allkeys 做 NSSet intersect,
+    // 將本身 Key 跟 mapping allkeys 做 NSSet intersect,
     // 取出共有的 key, 再設置 value, 可加速設置過程.
     NSSet *properties  = [self __allProperties];
     NSMutableSet *keys = [NSMutableSet setWithArray:[keyedValues allKeys]];
@@ -158,7 +167,7 @@
 }
 
 #pragma mark - Piblic
-#pragma mark SRPModel to NSDictionary
+#pragma mark To NSDictionary
 - (NSDictionary *)toDictionary
 {
     NSSet *properties = [self __allProperties];
@@ -181,18 +190,19 @@
         // 如果 value 為 NSArray, 需要再把 Array 裡的 object 再轉換.
         if([value isKindOfClass:[NSArray class]])
         {
-            NSMutableArray *array = [NSMutableArray array];
+            NSMutableArray *newValue = [NSMutableArray array];
             
-            [value enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [value enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+            {
                 if([obj isKindOfClass:[SRPModel class]])
                 {
                     obj = [obj toDictionary];
                 }
                 
-                [array addObject:obj];
+                [newValue addObject:obj];
             }];
             
-            value = array;
+            value = newValue;
         }
         
         result[property] = value;
@@ -201,15 +211,15 @@
     return result;
 }
 
-#pragma mark SRPModel to JSON string
+#pragma mark To JSON String
 - (NSString *)toJSONString
 {
     NSDictionary *dic = [self toDictionary];
-    NSData *toData    = [NSJSONSerialization dataWithJSONObject:dic
+    NSData *jsonData  = [NSJSONSerialization dataWithJSONObject:dic
                                                         options:NSJSONWritingPrettyPrinted
                                                           error:nil];
     
-    return [[NSString alloc]initWithData:toData encoding:NSUTF8StringEncoding];
+    return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 
@@ -222,24 +232,25 @@
         return;
     }
     
-    Class class = [self __classForProperty:key];
+    Class propertyClass = [self __classForProperty:key];
     
     // 如果某個 key 的 class 等於 SRPModel, 而且 value 是 NSDictionary, 再把 value 轉成 SRPModel.
     if([value isKindOfClass:[NSDictionary class]] &&
-       [class isSubclassOfClass:[SRPModel class]])
+       [propertyClass isSubclassOfClass:[SRPModel class]])
     {
-        value = [class modelFromDictionary:value];
+        value = [propertyClass modelFromDictionary:value];
     }
     
-    // 如果某個自定義 SRPModel 實作 Protol modelsFromArray:forKey:,
+    // 如果某個自定義 SRPModel 實作 Protol arrayToModels:forKey:,
     // 而且 vaule 為 NSArray, 再把 value 轉成 SRPModel 集合.
     if([value isKindOfClass:[NSArray class]] &&
-       [[self class] respondsToSelector:@selector(newModelsFromArray:forProperty:)])
+       [[self class] respondsToSelector:@selector(arrayToModels:forKey:)])
     {
-        value = [[self class]newModelsFromArray:value forProperty:key];
+        value = [[self class]arrayToModels:value forKey:key];
     }
     
-    if(!value || ![value isKindOfClass:class])
+    // value 為空, 或是 value class 與 property class 不符合
+    if(!value || ![value isKindOfClass:propertyClass])
     {
         return;
     }
@@ -250,49 +261,32 @@
 #pragma mark 返回 properties
 - (NSSet *)__allProperties
 {
-    BOOL includeSuperClass = NO;
-    
-    if([[self class]respondsToSelector:@selector(includeSuperClassProperties)])
-    {
-        includeSuperClass = [[self class]includeSuperClassProperties];
-    }
-    
     NSMutableSet *result = [NSMutableSet set];
     Class class = [self class];
     
+    // 這裡會返回包含 Super class property
     while ([class isSubclassOfClass:[SRPModel class]])
     {
-        [self __propertiesForClass:class withSet:&result];
+        unsigned int count;
+        objc_property_t *propertyList = class_copyPropertyList(class, &count);;
+        NSString *propertyName;
         
-        if(!includeSuperClass)
+        for(unsigned int i = 0; i < count; i++)
         {
-            break;
+            propertyName = @(property_getName(propertyList[i]));
+            
+            if(propertyName.length)
+            {
+                [result addObject:propertyName];
+            }
         }
+        
+        free(propertyList);
         
         class = [class superclass];
     }
-    
-    
-    return result.count ? result : nil;
-}
-
-- (void)__propertiesForClass:(Class)class withSet:(NSMutableSet **)result
-{
-    unsigned int count;
-    objc_property_t *propertyList = class_copyPropertyList(class, &count);;
-    NSString *propertyName;
-    
-    for(unsigned int i = 0; i < count; i++)
-    {
-        propertyName = @(property_getName(propertyList[i]));
         
-        if(propertyName.length)
-        {
-            [*result addObject:propertyName];
-        }
-    }
-    
-    free(propertyList);
+    return result.count ? result : nil;
 }
 
 #pragma mark 返回某個 Property 的 class 類型
@@ -312,10 +306,10 @@
     const char *type = property_getAttributes(property);
     
     // T@"NSString",R,N,V_property
-    NSString * typeString    = @(type);
+    NSString * typeString = @(type);
     
     //@[@"T@"NSString", @"R", @"N", @"V_property"]
-    NSArray * attributes     = [typeString componentsSeparatedByString:@","];
+    NSArray * attributes = [typeString componentsSeparatedByString:@","];
     
     // T@"NSString
     NSString * typeAttribute = [attributes objectAtIndex:0];
