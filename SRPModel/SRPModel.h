@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel Array.
  */
-+ (NSArray *)arrayToModels:(NSArray *)array forKey:(NSString *)key;
++ (NSArray *)arrayToModels:(NSArray *)array forKey:(NSString *)key DEPRECATED_MSG_ATTRIBUTE("use (propertyName)TransformValue: instead.");
 
 @end
 
@@ -64,6 +64,15 @@ NS_ASSUME_NONNULL_BEGIN
 ///-----------------------------------------------------------------------------
 /// @name Class methods
 ///-----------------------------------------------------------------------------
+
+/**
+ *  Models from id.
+ *
+ *  @param object from source.
+ *
+ *  @return 返回 SRPModel 集合.
+ */
++ (nullable NSArray <__kindof SRPModel *> *)modelsFromObject:(id)object;
 
 /**
  *  Models from NSArray.
@@ -82,6 +91,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 返回 SRPModel 集合.
  */
 + (nullable NSArray <__kindof SRPModel *> *)modelsFromJSONString:(NSString *)json;
+
+/**
+ *  Model from id.
+ *
+ *  @param object from source.
+ *
+ *  @return 返回 SRPModel 物件.
+ */
++ (nullable instancetype)modelFromObject:(id)object;
 
 /**
  *  Model from NSDictionary.
@@ -111,14 +129,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 將 SRPModel 轉成 NSDictionary.
  */
-- (nullable NSDictionary *)toDictionary;
+- (NSDictionary *)toDictionary;
 
 /**
  *  轉成 JSON String
  *
  *  @return 將 SRPModel 轉成 JSON String.
  */
-- (nullable NSString *)toJSONString;
+- (NSString *)toJSONString;
 
 @end
 

@@ -12,6 +12,32 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 @implementation SRPModel
 
 #pragma mark - Class methods
+#pragma mark Models from id
++ (NSArray<SRPModel *> *)modelsFromObject:(id)object
+{
+    if([object isKindOfClass:[NSArray class]])
+    {
+        return [self modelsFromArray:object];
+    }
+    else if([object isKindOfClass:[NSString class]])
+    {
+        return [self modelsFromJSONString:object];
+    }
+    else if([object isKindOfClass:[NSData class]])
+    {
+        NSError *error;
+        
+        id toArray = [NSJSONSerialization JSONObjectWithData:object options:NSJSONReadingAllowFragments error:&error];
+        
+        if([toArray isKindOfClass:[NSArray class]])
+        {
+            return [self modelsFromArray:toArray];
+        }
+    }
+    
+    return nil;
+}
+
 #pragma mark Models from NSArray
 + (NSArray<SRPModel *> *)modelsFromArray:(NSArray *)array
 {
@@ -58,6 +84,32 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
                                                      error:nil];
     
     return [self modelsFromArray:jsonArray];
+}
+
+#pragma mark Model from id
++ (instancetype)modelFromObject:(id)object
+{
+    if([object isKindOfClass:[NSDictionary class]])
+    {
+        return [self modelFromDictionary:object];
+    }
+    else if([object isKindOfClass:[NSString class]])
+    {
+        return [self modelFromJSONString:object];
+    }
+    else if([object isKindOfClass:[NSData class]])
+    {
+        NSError *error;
+        
+        id toDictionary = [NSJSONSerialization JSONObjectWithData:object options:NSJSONReadingAllowFragments error:&error];
+        
+        if([toDictionary isKindOfClass:[NSDictionary class]])
+        {
+            return [self modelFromDictionary:toDictionary];
+        }
+    }
+    
+    return nil;
 }
 
 #pragma mark Model from NSDictionary
@@ -215,9 +267,32 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 - (NSString *)toJSONString
 {
     NSDictionary *dic = [self toDictionary];
-    NSData *jsonData  = [NSJSONSerialization dataWithJSONObject:dic
+    
+    if(!dic.count)
+    {
+        return @"{}";
+    }
+    
+    NSMutableDictionary *mDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+    
+    [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if([obj isKindOfClass:[NSDate class]])
+        {
+            NSDate *date = obj;
+            
+            mDic[key] = @(date.timeIntervalSince1970);
+        }
+    }];
+    
+    NSError *error;
+    NSData *jsonData  = [NSJSONSerialization dataWithJSONObject:mDic
                                                         options:NSJSONWritingPrettyPrinted
-                                                          error:nil];
+                                                          error:&error];
+    
+    if(!jsonData.length)
+    {
+        return @"{}";
+    }
     
     return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
@@ -241,12 +316,16 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
         value = [propertyClass modelFromDictionary:value];
     }
     
-    // 如果某個自定義 SRPModel 實作 Protol arrayToModels:forKey:,
-    // 而且 vaule 為 NSArray, 再把 value 轉成 SRPModel 集合.
-    if([value isKindOfClass:[NSArray class]] &&
-       [[self class] respondsToSelector:@selector(arrayToModels:forKey:)])
+    NSString *selectorString = [NSString stringWithFormat:@"%@TransformValue:", key];
+    SEL selector = NSSelectorFromString(selectorString);
+    
+    // 如果某個自定義 SRPModel 實作 (key)TransformValue:
+    if([[self class]respondsToSelector:selector])
     {
-        value = [[self class]arrayToModels:value forKey:key];
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        value = [[self class]performSelector:selector withObject:value];
+        #pragma clang diagnostic pop
     }
     
     // value 為空, 或是 value class 與 property class 不符合

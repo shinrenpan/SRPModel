@@ -61,7 +61,7 @@ NSArray <Person *> *models = [Person modelsFromArray:person];
 
 - 自定義 Key mapping.
 - 設置 default 值.
-- 將 Array Property 轉成 models 集合.
+- 轉換 Property value
 
 
 
@@ -104,8 +104,8 @@ NSArray <Person *> *models = [Person modelsFromArray:person];
 
 
 
-### Property Array 轉成 Models
-假設 Person 有個 Array Property 是 SRPModel 集合, 如下, 必須實作 arrayToModels:forKey Class method.
+### 轉換 Property value
+假設 Person 有個 Property models 是 SRPModel 集合, 如下, 必須實作 (propertyName)TransformValue Class method
 
 ```objc
 @property (nonatomic, readonly) NSArray <SomeModel *> *models;
@@ -114,15 +114,14 @@ NSArray <Person *> *models = [Person modelsFromArray:person];
 .
 
 @implementation Person
-+ (NSArray *)arrayToModels:(NSArray *)array forKey:(NSString *)key
++ (NSArray *)modelsTransformValue:(id)oldValue
 {
-    // 只轉換 key = models, 其餘 return 原本的 array
-	if([key isEqualToString:@"models"])
+	if([oldValue isKindOfClass:[NSArray class]])
 	{
-	    return [SomeModel modelsFromArray:array];
+		return [SomeModel modelsFromArray:oldValue];
 	}
 	
-	return array;
+	return nil;
 }
 @end
 ```
