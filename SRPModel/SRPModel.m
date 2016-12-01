@@ -302,6 +302,26 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark 設置 Key / Value
 - (void)__setValue:(id)value forKey:(NSString *)key
 {
+    NSString *selectorString = [NSString stringWithFormat:@"%@TransformValue:", key];
+    SEL selector = NSSelectorFromString(selectorString);
+    
+    // 當 User 實作 (key)TransformValue: 其權限最大, 任何問題 User 承擔, 不再走以下判斷
+    if([[self class]respondsToSelector:selector])
+    {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        id transformValue = [[self class]performSelector:selector withObject:value];
+        #pragma clang diagnostic pop
+        
+        // maybe nil
+        if(transformValue)
+        {
+            [self setValue:transformValue forKey:key];
+        }
+        
+        return;
+    }
+    
     if([value isKindOfClass:[NSNull class]] || !value)
     {
         return;
@@ -309,23 +329,11 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
     
     Class propertyClass = [self __classForProperty:key];
     
-    // 如果某個 key 的 class 等於 SRPModel, 而且 value 是 NSDictionary, 再把 value 轉成 SRPModel.
+    // 如果某個 key 的 class subclass SRPModel, 而且 value 是 NSDictionary, 再把 value 轉成 SRPModel.
     if([value isKindOfClass:[NSDictionary class]] &&
        [propertyClass isSubclassOfClass:[SRPModel class]])
     {
         value = [propertyClass modelFromDictionary:value];
-    }
-    
-    NSString *selectorString = [NSString stringWithFormat:@"%@TransformValue:", key];
-    SEL selector = NSSelectorFromString(selectorString);
-    
-    // 如果某個自定義 SRPModel 實作 (key)TransformValue:
-    if([[self class]respondsToSelector:selector])
-    {
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        value = [[self class]performSelector:selector withObject:value];
-        #pragma clang diagnostic pop
     }
     
     // value 為空, 或是 value class 與 property class 不符合
