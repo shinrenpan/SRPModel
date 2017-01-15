@@ -223,7 +223,7 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 - (NSDictionary *)toDictionary
 {
     NSSet *properties = [self __allProperties];
-    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:properties.count];
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
     
     for(NSString *property in properties)
     {
@@ -231,7 +231,7 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
         
         if(!value)
         {
-            value = [NSNull null];
+            continue;
         }
         
         if([value isKindOfClass:[SRPModel class]])
