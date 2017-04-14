@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel 集合.
  */
-+ (nullable NSArray <__kindof SRPModel *> *)modelsFromObject:(id)object;
++ (nullable NSArray <__kindof SRPModel *> *)modelsFromObject:(nullable id)object;
 
 /**
  *  Models from NSArray.
@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel 集合.
  */
-+ (nullable NSArray <__kindof SRPModel *> *)modelsFromArray:(NSArray *)array;
++ (nullable NSArray <__kindof SRPModel *> *)modelsFromArray:(nullable NSArray *)array;
 
 /**
  *  Models from JSON string.
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel 集合.
  */
-+ (nullable NSArray <__kindof SRPModel *> *)modelsFromJSONString:(NSString *)json;
++ (nullable NSArray <__kindof SRPModel *> *)modelsFromJSONString:(nullable NSString *)json;
 
 /**
  *  Model from id.
@@ -99,7 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel 物件.
  */
-+ (nullable instancetype)modelFromObject:(id)object;
++ (nullable instancetype)modelFromObject:(nullable id)object;
 
 /**
  *  Model from NSDictionary.
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel 物件.
  */
-+ (nullable instancetype)modelFromDictionary:(NSDictionary *)dic;
++ (nullable instancetype)modelFromDictionary:(nullable NSDictionary *)dic;
 
 /**
  *  Model from JSON string.
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回 SRPModel 物件.
  */
-+ (nullable instancetype)modelFromJSONString:(NSString *)json;
++ (nullable instancetype)modelFromJSONString:(nullable NSString *)json;
 
 
 ///-----------------------------------------------------------------------------
