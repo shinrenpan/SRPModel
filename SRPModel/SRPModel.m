@@ -15,6 +15,10 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark Models from id
 + (NSArray<SRPModel *> *)modelsFromObject:(id)object
 {
+    if(!object)
+    {
+        return nil;
+    }
     if([object isKindOfClass:[NSArray class]])
     {
         return [self modelsFromArray:object];
@@ -41,6 +45,10 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark Models from NSArray
 + (NSArray<SRPModel *> *)modelsFromArray:(NSArray *)array
 {
+    if(!array)
+    {
+        return nil;
+    }
     if(![array isKindOfClass:[NSArray class]] || !array.count)
     {
         return nil;
@@ -67,6 +75,10 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark Models from JSON String
 + (NSArray<SRPModel *> *)modelsFromJSONString:(NSString *)json
 {
+    if(!json)
+    {
+        return nil;
+    }
     if(![json isKindOfClass:[NSString class]] || !json.length)
     {
         return nil;
@@ -89,6 +101,10 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark Model from id
 + (instancetype)modelFromObject:(id)object
 {
+    if(!object)
+    {
+        return nil;
+    }
     if([object isKindOfClass:[NSDictionary class]])
     {
         return [self modelFromDictionary:object];
@@ -115,6 +131,10 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark Model from NSDictionary
 + (instancetype)modelFromDictionary:(NSDictionary *)dic
 {
+    if(!dic)
+    {
+        return nil;
+    }
     if(![dic isKindOfClass:[NSDictionary class]] || !dic.count)
     {
         return nil;
@@ -137,6 +157,10 @@ static NSString *const SRPModelNSCodingKey = @"SRPModelNSCodingKey";
 #pragma mark Model from JSON String
 + (instancetype)modelFromJSONString:(NSString *)json
 {
+    if(!json)
+    {
+        return nil;
+    }
     if(![json isKindOfClass:[NSString class]] || !json.length)
     {
         return nil;
